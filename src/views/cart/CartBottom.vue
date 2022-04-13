@@ -8,8 +8,8 @@
     <div class="total-price">
       <span>合计：￥{{totalPrice}}</span>
     </div>
-    <div class="calc">
-      去结算({{calcCount}})
+    <div class="calc" @click="pay">
+      支付({{calcCount}})
     </div>
   </div>
 </template>
@@ -48,6 +48,9 @@ export default {
       }else {
         this.$store.state.cartGoods.forEach(item => item.isCheck = true)
       }
+    },
+    pay() {
+      this.$emit('buy')
     }
   }
 }

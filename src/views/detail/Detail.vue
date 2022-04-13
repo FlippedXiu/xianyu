@@ -23,7 +23,7 @@
     name: "Detail",
     data() {
       return {
-        iid: 201250036,
+        iid: null,
         topImage: {},
         goodsInfo:{},
         shopInfo:{},

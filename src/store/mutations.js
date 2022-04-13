@@ -6,5 +6,5 @@ export default {
     payload.isCheck = true;
     payload.count = 1;
     state.cartGoods.push(payload)
-  }
+  },
 }

@@ -1,13 +1,13 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">跳蚤市场</div></nav-bar>
-    <search></search>
     <scroll class="content"
             ref="scroll"
             :probe-type="3"
             @scroll="contentScroll"
             :pull-up-load="true"
             @pullingUp="loadMore">
+      <search></search>
       <home-recommend :recommends="recommends"/>
 <!--    TODO: 这里需要根据标题修改title-->
       <tab-control class="tab-control"
@@ -43,7 +43,7 @@
           'title3': {page: 0, list: []},
         },
         currentType: 'title1',
-        isShowBackTop: false
+        isShowBackTop: false,
       }
     },
     components: {
@@ -54,6 +54,7 @@
       GoodsList,
       Scroll,
     },
+    //Todo: 测试时删除，请求到数据时要恢复
     // created: function () {
     //   // 1.请求多个数据
     //   this.getHomeMultidata()

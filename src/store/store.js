@@ -9,7 +9,7 @@ import getters from './getters'
 
 const store = new Vuex.Store({
   state :{
-    cartGoods:[]
+    cartGoods:[],
   },
   mutations,
   actions,

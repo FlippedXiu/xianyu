@@ -1,5 +1,4 @@
 export default {
-
   addCart(context, payload) {
    return new Promise(resolve => {
      const product = context.state.cartGoods.find(item => {
@@ -13,5 +12,6 @@ export default {
        resolve('添加商品')
      }
    })
-  }
+  },
+
 }

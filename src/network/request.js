@@ -1,4 +1,4 @@
-import axios from '@/network/request'
+import axios from 'axios'
 
 export function request(config) {
   // 1.创建axios的实例
