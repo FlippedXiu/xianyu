@@ -1,7 +1,7 @@
 <template>
   <div id="detail">
-    <nav-bar class="home-nav"><div slot="center">商品详情</div></nav-bar>
-<!--    <img src="topImage" alt="">-->
+    <DetailNavBar></DetailNavBar>
+    <img src="topImage" alt="">
     <base-info :goods="goodsInfo"></base-info>
     <shop-info :shop="shopInfo"></shop-info>
     <detail-info :detail-info="detailInfo"></detail-info>
@@ -18,14 +18,15 @@
   import ShopInfo from "@/views/detail/ShopInfo";
   import DetailInfo from "@/views/detail/DetailInfo";
   import BottomBar from "@/views/detail/BottomBar";
+  import DetailNavBar from "@/views/detail/DetailNavBar";
 
   export default {
     name: "Detail",
     data() {
       return {
         iid: null,
-        topImage: {},
-        goodsInfo:{},
+        topImage: "",
+        goodsInfo:{title: 'test1', desc: 'good', price: '30$'},
         shopInfo:{},
         detailInfo: "hello",
         currentIndex:0
@@ -37,6 +38,7 @@
       ShopInfo,
       DetailInfo,
       BottomBar,
+      DetailNavBar,
     },
     // created() {
     //   this.iid = this.$route.params.iid

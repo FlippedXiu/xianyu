@@ -1,10 +1,10 @@
 <template>
   <div class="goods-item" @click="itemClick">
 <!--TODO：图片地址需要修改-->
-    <img :src="goodsItem.img" alt="">
+    <img src="@/assets/img/home/recommend_bg.jpg" alt="">
     <div class="goods-info">
-      <p>{{goodsItem.title}}</p>
-      <span class="price">{{goodsItem.price}}</span>
+      <p>商品名称：{{goodsItem.title}}</p>
+      <span class="price">价格：{{goodsItem.price}}</span>
     </div>
   </div>
 </template>
@@ -31,13 +31,13 @@
 
 <style scoped>
   .goods-item {
-    padding-bottom: 40px;
+    padding-bottom: 80px;
     position: relative;
-
     width: 48%;
   }
 
   .goods-item img {
+    height: 500px;
     width: 100%;
     border-radius: 5px;
   }
@@ -57,11 +57,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-bottom: 3px;
+    font-size: 24px;
   }
 
   .goods-info .price {
     color: var(--color-high-text);
     margin-right: 20px;
+    font-size: 24px;
   }
 
   .goods-info .collect {

@@ -19,7 +19,6 @@ export default {
     CartBottom,
     NavBar,
     CartGoodsList,
-    axios
   },
 
   computed: {

@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      buyGoodsList: [],
+      buyGoodsList: [{title: "test1", desc: "good", price: "30$"}],
     }
   },
   created() {

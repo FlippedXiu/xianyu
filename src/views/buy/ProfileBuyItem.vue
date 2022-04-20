@@ -1,14 +1,14 @@
 <template>
   <div class="list-item">
     <div class="item-img">
-      <img :src="product.image" alt="商品图片">
+      //记得加绑定
+      <img src="@/assets/img/home/recommend_bg.jpg" alt="商品图片">
     </div>
     <div class="item-info">
       <div class="item-title">{{product.title}}</div>
       <div class="item-desc">{{product.desc}}</div>
       <div class="info-bottom">
         <div class="item-price">￥{{product.price}}</div>
-        <div class="item-count">x{{product.count}}</div>
       </div>
     </div>
   </div>

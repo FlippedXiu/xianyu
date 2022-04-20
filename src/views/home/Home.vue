@@ -38,7 +38,7 @@
         //列表数据
         goods: {
           //TODO：此处的，名称需要和TabBarControl中的title对应
-          'title1': {page: 0, list: [{title: "test1", price: "30$"}]},
+          'title1': {page: 0, list: [{title: "test1", price: "30$"}, {title: "test2", price: "40$", iid: 112}, {title: "test3", price: "30$"}, {title: "test4", price: "40$"}]},
           'title2': {page: 0, list: []},
           'title3': {page: 0, list: []},
         },

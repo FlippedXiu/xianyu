@@ -12,9 +12,9 @@
       <div class="shop-middle-right">
         <table>
           <tr>
-            <td>描述相符: 5.0  高</td>
-            <td>描述相符: 5.0  高</td>
-            <td>质量满意: 5.0  高</td>
+            <td>描述相符: 5.0       高</td>
+            <td>描述相符: 5.0       高</td>
+            <td>质量满意: 5.0       高</td>
           </tr>
         </table>
       </div>
@@ -69,35 +69,45 @@ export default {
 .shop-middle {
   margin-top: 15px;
   display: flex;
-  align-items: center;
 }
 
 
 .shop-middle-left {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   color: #333;
   text-align: center;
   border-right: 1px solid rgba(0,0,0,.1);
+  align-items: center;
 }
 
 .sells-count {
   font-size: 18px;
+  font-weight: bolder;
 }
 
 .sells-text {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .shop-middle-right {
-  font-size: 13px;
+  font-size: 20px;
   color: #333;
+
 }
 
 .shop-middle-right table {
-  width: 120px;
+  width: 200px;
   margin-left: 30px;
+}
+
+.shop-middle-right table  tr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .shop-middle-right table td {
