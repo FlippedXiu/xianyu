@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import myGoods from "@/views/myGoods/myGoods";
 
 const Home = () => import('../views/home/Home')
 const Cart = () => import('../views/cart/Cart')
@@ -8,6 +9,9 @@ const Detail = () => import("../views/detail/Detail")
 const Search = () => import("../views/search/search")
 const Buy = () => import("../views/buy/Buy")
 const login = () => import("../views/login/Login")
+const Sell = () => import("../views/sell/Sell")
+const Upload = () => import("../views/upload/upload")
+const MyGoods =() => import("../views/myGoods/myGoods")
 
 // 1.安装插件
 Vue.use(VueRouter)
@@ -16,7 +20,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/home'
+    redirect: '/profile'
+  },
+  {
+    path: '/sell',
+    component: Sell,
   },
   {
     path: '/home',
@@ -45,6 +53,14 @@ const routes = [
   {
     path: '/login',
     component: login
+  },
+  {
+    path: '/upload',
+    component: Upload
+  },
+  {
+    path: '/myGoods',
+    component: myGoods
   }
 ]
 const router = new VueRouter({

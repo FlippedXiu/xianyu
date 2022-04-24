@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="wrapper">
     <router-view/>
-    <main-tab-bar/>
+    <div v-if="notSellPage">
+      <main-tab-bar></main-tab-bar>
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,16 @@ export default {
   name: 'app',
   components: {
     MainTabBar
+  },
+  data() {
+    return {
+      notSellPage: true,
+    }
+  },
+  watch: {
+    $route(e) {
+      this.notSellPage = e.path !== '/sell';
+    }
   }
 }
 </script>

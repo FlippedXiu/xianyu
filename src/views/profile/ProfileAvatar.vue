@@ -6,9 +6,6 @@
         <router-link to="/login" replace>登录</router-link>
       </div>
     </div>
-    <div class="right">
-      >
-    </div>
   </div>
 </template>
 

@@ -2,7 +2,7 @@
   <div id="cart">
     <nav-bar><div slot="center">购物车</div> </nav-bar>
     <CartGoodsList></CartGoodsList>
-    <cart-bottom @pay = "pay"></cart-bottom>
+    <cart-bottom @pay="pay"></cart-bottom>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 import NavBar from "@/components/common/navigationBar/NavBar";
 import CartGoodsList from "@/views/cart/CartGoodsList";
 import CartBottom from "@/views/cart/CartBottom";
+import {getCartData} from "@/network/myGoods";
 import axios from "axios";
 import {mapGetters} from "vuex";
 
@@ -21,18 +22,33 @@ export default {
     CartGoodsList,
   },
 
+  data() {
+    return {
+      id: this.cartGoodsList.iid,
+      goodsList: this.cartGoodsList,
+    }
+  },
+
   computed: {
     ...mapGetters(['cartGoodsList'])
   },
   methods: {
     pay() {
       //TODO: URL需要修改
-      axios.post('/pay', {
-        message: this.cartGoodsList,
-      }).then( res => {
-        console.log(res)
-      } )
-    }
+      axios({
+        url: '/pay',
+        methods: "post",
+        contentType: "application/json",
+        data: {
+          cartGoodsList: this.goodsList,
+        },
+        params: {
+          id: this.id,
+        },
+      }).then(res => {
+        console.log(res);
+      })
+    },
   }
 }
 </script>

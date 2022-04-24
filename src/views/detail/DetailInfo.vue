@@ -25,6 +25,6 @@ export default {
 }
 
 .detail-desc {
-  padding: 0 15px;
+  padding: 0 5px;
 }
 </style>

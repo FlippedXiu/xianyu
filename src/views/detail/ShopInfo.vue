@@ -1,7 +1,7 @@
 <template>
   <div class="shop-info">
     <div class="shop-top">
-      <img :src="shop.logo">
+      <img src="../../assets/img/profile/vip.svg">
       <span class="title">{{shop.name}}</span>
     </div>
     <div class="shop-middle">
@@ -59,6 +59,7 @@ export default {
   height: 45px;
   border-radius: 50%;
   border: 1px solid rgba(0,0,0,.1);
+  margin-left: 600px;
 }
 
 .shop-top .title {
@@ -78,8 +79,8 @@ export default {
   justify-content: space-evenly;
   color: #333;
   text-align: center;
-  border-right: 1px solid rgba(0,0,0,.1);
   align-items: center;
+  margin-left: 500px;
 }
 
 .sells-count {
@@ -88,7 +89,7 @@ export default {
 }
 
 .sells-text {
-  margin-top: 10px;
+  margin-top: 6px;
   font-size: 16px;
   font-weight: bold;
 }
@@ -101,7 +102,7 @@ export default {
 
 .shop-middle-right table {
   width: 200px;
-  margin-left: 30px;
+  margin-left: 100px;
 }
 
 .shop-middle-right table  tr {
@@ -111,7 +112,7 @@ export default {
 }
 
 .shop-middle-right table td {
-  padding: 5px 0;
+  padding: 3px 0;
 }
 
 .shop-bottom {

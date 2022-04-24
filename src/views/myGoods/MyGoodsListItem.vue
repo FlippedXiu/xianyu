@@ -1,8 +1,5 @@
 <template>
   <div class="list-item">
-    <div class="item-selector">
-      <check-button :is-check="product.isCheck" @click.native="changeCheck"></check-button>
-    </div>
     <div class="item-img">
       //动态获取时记得绑定图片
       <img src="@/assets/img/home/recommend_bg.jpg" alt="商品图片">
@@ -12,18 +9,19 @@
       <div class="item-desc">{{product.desc}}</div>
       <div class="info-bottom">
         <div class="item-price">￥{{product.price}}</div>
-        <div class="item-count">x{{product.count}}</div>
       </div>
+      <el-button @click="click">删除</el-button>
     </div>
   </div>
 </template>
 
 <script>
-import CheckButton from "@/components/content/checkButton/CheckButton";
+import axios from "axios";
+
 export default {
   name: "CartGoodsListItem",
   components: {
-    CheckButton,
+
   },
   props: {
     product: {
@@ -34,8 +32,20 @@ export default {
     }
   },
   methods: {
-    changeCheck() {
-      this.product.isCheck = !this.product.isCheck;
+    click() {
+      axios({
+        url: '/myGoods',
+        methods: "post",
+        contentType: "application/json",
+        data: {
+          product: this.product
+        },
+        params: {
+          iid: this.product.iid,
+        }
+      })
+
+      this.$emit('remove');
     }
   }
 }

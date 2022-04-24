@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import App from "@/App";
+
 export default {
   name: "Login",
   data() {
@@ -17,7 +19,7 @@ export default {
       user_input: '',
       pass_input: '',
     }
-  }
+  },
 }
 </script>
 

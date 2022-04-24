@@ -1,16 +1,17 @@
 <template>
   <div id="detail">
-    <DetailNavBar></DetailNavBar>
-    <img src="topImage" alt="">
-    <base-info :goods="goodsInfo"></base-info>
-    <shop-info :shop="shopInfo"></shop-info>
-    <detail-info :detail-info="detailInfo"></detail-info>
-    <BottomBar @addCart = "addCart"></BottomBar>
+      <DetailNavBar></DetailNavBar>
+      <img class="img" src="../../assets/img/home/recommend_bg.jpg" alt="">
+      <base-info :goods="goodsInfo"></base-info>
+      <shop-info :shop="shopInfo"></shop-info>
+      <detail-info :detail-info="detailInfo"></detail-info>
+      <BottomBar @addCart = "addCart"></BottomBar>
   </div>
 </template>
 
 <script>
-  import {getDetailData,Goods,Shop,GoodsParam} from "@/network/detail";
+  import {getDetailData,Goods,Shop} from "@/network/detail";
+  import axios from "axios";
 
   import NavBar from "@/components/common/navigationBar/NavBar";
 
@@ -19,6 +20,7 @@
   import DetailInfo from "@/views/detail/DetailInfo";
   import BottomBar from "@/views/detail/BottomBar";
   import DetailNavBar from "@/views/detail/DetailNavBar";
+  import Scroll from "@/components/common/scroll/Scroll";
 
   export default {
     name: "Detail",
@@ -26,7 +28,7 @@
       return {
         iid: null,
         topImage: "",
-        goodsInfo:{title: 'test1', desc: 'good', price: '30$'},
+        goodsInfo:{title: 'test1', desc: 'good', price: '30'},
         shopInfo:{},
         detailInfo: "hello",
         currentIndex:0
@@ -39,6 +41,7 @@
       DetailInfo,
       BottomBar,
       DetailNavBar,
+      Scroll
     },
     // created() {
     //   this.iid = this.$route.params.iid
@@ -73,12 +76,15 @@
         //将商品添加购物车里 vuex
         this.$store.dispatch('addCart',product).then(res => {
           console.log(res)
-        })
+        });
       }
     }
   }
 </script>
 
 <style scoped>
-
+.img {
+  height: 150px;
+  width: 150px;
+}
 </style>

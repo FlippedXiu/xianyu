@@ -26,6 +26,8 @@ export default {
       return this.$store.state.cartGoods.filter(item => {
         return item.isCheck === true
       }).reduce((prev,item) => {
+        console.log(item.price)
+        console.log(item.count)
         return prev + item.price * item.count
       },0).toFixed(2)
     },
@@ -50,6 +52,7 @@ export default {
       }
     },
     pay() {
+      alert("支付成功，可进入个人中心查询购买记录")
       this.$emit('buy')
     }
   }
