@@ -1,6 +1,8 @@
 <template>
   <div>
-    <nav-bar class="upload-navBar"><div slot="center">商品发布</div></nav-bar>
+    <nav-bar class="upload-navBar">
+      <div slot="center">商品发布</div>
+    </nav-bar>
     <div>
       <img :src="imageSrc" style="height:100px;width:100px;">
       <input type="file" v-on:change="test()" ref="fileInput">
@@ -27,14 +29,12 @@
 </template>
 
 <script>
-import uploadImg from "@/views/upload/uploadImg";
 import NavBar from "@/components/common/navigationBar/NavBar";
 import axios from "axios";
 
 export default {
   name: "upload",
   components: {
-    uploadImg,
     NavBar,
   },
   data() {

@@ -2,17 +2,29 @@
   <div class="profile-avatar">
     <img src="@/assets/img/profile/avatar.svg" alt="" class="avatar">
     <div class="center">
-      <div class="login">
+      <div class="login" v-if="!loginIn">
         <router-link to="/login" replace>登录</router-link>
+      </div>
+      <div v-if="loginIn">
+        <div>已登录</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "ProfileAvatar"
+import App from "@/App";
+export default {
+  name: "ProfileAvatar",
+  data() {
+    return {
+      loginIn: false
+    }
+  },
+  created() {
+    this.loginIn = App.globalData.isLogin;
   }
+}
 </script>
 
 <style scoped>

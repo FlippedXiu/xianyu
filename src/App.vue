@@ -22,8 +22,11 @@ export default {
   },
   watch: {
     $route(e) {
-      this.notSellPage = e.path !== '/sell';
+      this.notSellPage = e.path !== '/sell' && e.path !== '/login';
     }
+  },
+  globalData: {
+    isLogin: false,
   }
 }
 </script>

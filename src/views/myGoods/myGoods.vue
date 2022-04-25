@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      userID: null,
+      sellID: null,
       goodsList: [{title: 'test1', price: '30'}, {title: 'test2', price: '30'}],
     }
   },
@@ -31,7 +31,7 @@ export default {
   // },
   methods: {
     getMyGoodsData() {
-      getMyGoodsData(this.userID).then(res => {
+      getMyGoodsData(this.sellID).then(res => {
         this.goodsList = res;
       })
     },

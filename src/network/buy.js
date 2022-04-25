@@ -1,10 +1,10 @@
 import {request} from './request'
 
-export function getMyGoodsData(sellID) {
+export function getBuyData(userID) {
   return request({
-    url:'/myGoods',
+    url:'/buy',
     params:{
-      sellID
+      userID
     }
   })
 }

@@ -1,8 +1,14 @@
 <template>
-  <div>
-    <nav-bar class="sell-nav"><div slot="center">我是卖家</div></nav-bar>
-    <div class="upload" @click="upload">发布商品</div>
-    <div class="my-goods" @click="myGoods">管理我的发布</div>
+  <div id="sell">
+    <nav-bar class="sell-nav"><div slot="left" @click="back">返回</div><div slot="center">我是卖家</div></nav-bar>
+    <div class="button">
+      <div class="upload">
+        <el-button type="primary" @click="upload">发布商品</el-button>
+      </div>
+      <div class="my-goods">
+        <el-button type="primary" @click="myGoods">管理我的发布</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,7 +27,7 @@ export default {
   },
   methods: {
     back() {
-      this.$router.replace('/home');
+      this.$router.replace('/profile');
     },
     upload() {
       this.$router.replace('/upload');
@@ -34,5 +40,17 @@ export default {
 </script>
 
 <style scoped>
+.button{
+  margin-top: 50px;
+  margin-left: 720px;
+  align-items: center;
+}
 
+.upload {
+  margin-bottom: 100px;
+}
+
+.my-goods{
+  margin-left: -10px;
+}
 </style>

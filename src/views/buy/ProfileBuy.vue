@@ -6,26 +6,28 @@
 
 <script>
 import ProfileBuyItem from "@/views/buy/ProfileBuyItem";
-import axios from "axios"
+import {getBuyData} from "@/network/buy";
+
 export default {
   name: "ProfileBuy",
   components: {
     ProfileBuyItem,
-    axios,
   },
   data() {
     return {
+      userID: null,
       buyGoodsList: [{title: "test1", desc: "good", price: "30$"}],
     }
   },
-  created() {
-    this.getMessage()
-  },
+  //TODO: 请求数据时恢复
+  // created() {
+  //   this.userID = this.$route.params.userID
+  //   this.getMessage()
+  // },
   methods: {
     getMessage() {
-      //TODO：URL需要修改
-      axios.get("/buy").then(res => {
-        this.buyGoodsList = res;
+      getBuyData(this.userID).then(res => {
+        this.buyGoodsList = res
       })
     }
   }
