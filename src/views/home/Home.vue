@@ -92,7 +92,7 @@
         this.isShowBackTop = (-position.y) > 1000
       },
 
-      //创建home实例对象是就要请求后端数据
+      //创建home实例对象是就要请求后端数据，请求到的数据要根据实际情况拿
       getHomeMultidata() {
         getHomeData1().then(res => {
           this.recommends = res.data.recommend.list;

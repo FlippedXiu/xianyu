@@ -43,6 +43,7 @@ export default {
     }
   },
   methods: {
+    //TODO: 这里的url需要修改
     push() {
       axios({
         url: '/upload',
