@@ -1,7 +1,10 @@
 <template>
   <div>
     <nav-bar class="upload-navBar"><div slot="center">商品发布</div></nav-bar>
-    <upload-img></upload-img>
+    <div>
+      <img :src="imageSrc" style="height:100px;width:100px;">
+      <input type="file" v-on:change="test()" ref="fileInput">
+    </div>
     <div class="uploadInfo">
       <el-input placeholder="请输入商品名称" v-model="input1">
         <template slot="prepend">商品名称</template>
@@ -40,6 +43,7 @@ export default {
       textareaShop: '',
       input1: '',
       input2: '',
+      imageSrc:''
     }
   },
   methods: {
@@ -50,12 +54,21 @@ export default {
         methods: "post",
         contentType: "application/json",
         data: {
+          imgURL: this.imageSrc,
           desc: this.textareaDesc,
           shopInfo: this.shopInfo,
           goodName: this.input1,
           goodPrice: this.input2,
         },
       })
+    },
+    test:function() {
+      const file = this.$refs.fileInput.files[0]
+      const fileReader = new FileReader()
+      fileReader.onload = (temp) => {
+        this.imageSrc = temp.target.result
+      }
+      fileReader.readAsDataURL(file)
     }
   }
 }
