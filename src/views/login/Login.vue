@@ -30,10 +30,14 @@ export default {
     }
   },
   methods: {
-    //TODO: 这里需要将用户名和密码发送给后端
+    //TODO DONE: 这里需要将用户名和密码发送给后端
     push() {
       axios({
-
+        url:"http://localhost:8080",
+        data: {
+          userName:user_input,
+          password:pass_input
+        },
       });
 
       this.$router.replace('/home');

@@ -27,8 +27,12 @@ export default {
   },
   methods: {
     itemClick(index) {
-      this.currentIndex = index;
-      this.$emit('tabClick', index)
+        //console.log(this.currentIndex,index)
+        localStorage.setItem('index',index+'')
+        if(this.currentIndex != index){
+        this.currentIndex = index;
+        this.$emit('tabClick', index)
+      }
     }
   }
 }

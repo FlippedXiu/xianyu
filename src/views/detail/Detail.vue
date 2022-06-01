@@ -43,11 +43,11 @@
       DetailNavBar,
       Scroll
     },
-    //TODO：请求到数据时要请这里的注释恢复，将静态数据删除
-    // created() {
-    //   this.iid = this.$route.params.iid
-    //   this.getDetailData()
-    // },
+    // TODO DONE：请求到数据时要请这里的注释恢复，将静态数据删除
+    created() {
+      this.iid = this.$route.params.iid
+      this.getDetailData()
+    },
     methods: {
       //TODO：获取页面信息，此处所有的请求为模拟请求，需要修改
       getDetailData() {
