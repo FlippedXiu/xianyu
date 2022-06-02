@@ -12,6 +12,6 @@ export function getHomeGoods(type) {
     url: '/item/getByType',//此处的url需要修改
     params: {
       type,
-    }
+    },
   })
 }
