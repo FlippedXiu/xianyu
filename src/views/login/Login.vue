@@ -33,10 +33,10 @@ export default {
     //TODO DONE: 这里需要将用户名和密码发送给后端
     push() {
       axios({
-        url:"http://localhost:8080",
+        url:"http://localhost:9090/user/login",
         data: {
-          userName:user_input,
-          password:pass_input
+          userName:this.user_input,
+          password:this.pass_input
         },
       });
 
