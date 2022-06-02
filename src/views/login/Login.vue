@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "@/network/axios";
 import App from "@/App";
 export default {
   name: "Login",
@@ -32,15 +32,14 @@ export default {
   methods: {
     //TODO DONE: 这里需要将用户名和密码发送给后端
     push() {
-      axios({
-        url:"http://localhost:9090/user/login",
-        data: {
-          userName:this.user_input,
-          password:this.pass_input
-        },
-      });
+      axios.post('/user/login', {
+        userInput: this.user_input,
+        passInput: this.pass_input,
+      }).then (res=>{
+        console.log(res)
+      })
 
-      this.$router.replace('/home');
+      //this.$router.replace('/home');
       //TODO: 如果登录成功，则修改为true，具体判断等待完善
       App.globalData.isLogin = true;
     },

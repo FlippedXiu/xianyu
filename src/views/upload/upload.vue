@@ -50,7 +50,7 @@ export default {
     //TODO: 这里的url需要修改
     push() {
       axios({
-        url: '/item/upload',
+        url: 'http://localhost:9090/item/upload',
         methods: "post",
         contentType: "application/json",
         data: {
