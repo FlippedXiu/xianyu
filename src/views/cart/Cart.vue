@@ -34,9 +34,9 @@ export default {
   },
   methods: {
     pay() {
-      //TODO: URL需要修改
+      //TODO DONE: URL需要修改
       axios({
-        url: '/pay',
+        url: 'http://localhost:8080',
         methods: "post",
         contentType: "application/json",
         data: {

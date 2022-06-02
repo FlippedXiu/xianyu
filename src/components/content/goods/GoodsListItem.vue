@@ -1,6 +1,8 @@
 <template>
   <div class="goods-item" @click="itemClick">
-<!--TODO：图片地址需要修改-->
+<!--
+  TODO ??：图片地址需要修改
+-->
     <img src="@/assets/img/home/recommend_bg.jpg" alt="">
     <div class="goods-info">
       <p>商品名称：{{goodsItem.title}}</p>
@@ -34,10 +36,11 @@
     padding-bottom: 80px;
     position: relative;
     width: 48%;
+    margin-bottom: 80px;
   }
 
   .goods-item img {
-    height: 500px;
+    height: 400px;
     width: 100%;
     border-radius: 5px;
   }

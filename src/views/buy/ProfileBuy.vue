@@ -15,22 +15,25 @@ export default {
   },
   data() {
     return {
+      getMessageFlag:false,
       userID: null,
       buyGoodsList: [{title: "test1", desc: "good", price: "30$"}],
     }
   },
-  //TODO: 请求数据时恢复
-  // created() {
-  //   this.userID = this.$route.params.userID
-  //   this.getMessage()
-  // },
+  //TODO DONE: 请求数据时恢复
+    created(){
+      if(getMessageFlag){
+        this.userID = this.$route.params.userID
+        this.getMessage()
+      }
+    },
   methods: {
     getMessage() {
       getBuyData(this.userID).then(res => {
         this.buyGoodsList = res
       })
     }
-  }
+  },
 }
 </script>
 

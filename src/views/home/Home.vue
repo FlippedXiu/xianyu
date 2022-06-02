@@ -1,20 +1,22 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">跳蚤市场</div></nav-bar>
-    <scroll class="content"
-            ref="scroll"
-            :probe-type="3"
-            @scroll="contentScroll"
-            :pull-up-load="true"
-            @pullingUp="loadMore">
+<!--    <scroll class="content"-->
+<!--            ref="scroll"-->
+<!--            :probe-type="3"-->
+<!--            @scroll="contentScroll"-->
+<!--            :pull-up-load="true"-->
+<!--            @pullingUp="loadMore">-->
       <search></search>
       <home-recommend :recommends="recommends"/>
-<!--    TODO: 这里需要根据标题修改title-->
+<!--    
+  TODO DONE: 这里需要根据标题修改title
+  -->
       <tab-control class="tab-control"
                    :titles="['title1', 'title2', 'title3']"
-                   @tabClick="tabClick"/>
+                   @tabClick="tabClick(index)"/>
       <GoodsList :goods="showGoods"/>
-    </scroll>
+<!--    </scroll>-->
   </div>
 </template>
 
@@ -37,11 +39,12 @@
         recommends: null,//列表数据包括图片photo，文字name以及链接link
         //列表数据
         goods: {
-          //TODO：此处的，名称需要和TabBarControl中的title对应
-          'title1': {list: [{title: "test1", price: "30$"}, {title: "test2", price: "40$", iid: 112}, {title: "test3", price: "30$"}, {title: "test4", price: "40$"}]},
-          'title2': {list: []},
-          'title3': {list: []},
+          //TODO DONE：此处的，名称需要和TabBarControl中的title对应
+          'title1': {list: []},
+          'title2': {list: [{title: "test3", price: "35$"}, {title: "test4", price: "50$", iid: 112}, {title: "test8", price: "30$"}]},
+          'title3': {list: [{title: "test5", price: "55$"}, {title: "test6", price: "45$", iid: 112}, {title: "test9", price: "30$"}]},
         },
+        index:1,
         currentType: 'title1',
         isShowBackTop: false,
       }
@@ -54,16 +57,16 @@
       GoodsList,
       Scroll,
     },
-    //Todo: 测试时删除，请求到数据时要恢复
-    // created: function () {
-    //   // 1.请求多个数据
-    //   this.getHomeMultidata()
-    //
-    //   // 2.请求商品数据
-    //   this.getHomeGoods('title1')
-    //   this.getHomeGoods('title2')
-    //   this.getHomeGoods('title3')
-    // },
+    // Todo DONE: 测试时删除，请求到数据时要恢复
+    created: function () {
+      // 1.请求多个数据
+      //this.getHomeMultidata()
+    
+      // 2.请求商品数据
+      this.getHomeGoods('title1')
+      this.getHomeGoods('title2')
+      this.getHomeGoods('title3')
+    },
     computed: {
       showGoods() {
         return this.goods[this.currentType].list
@@ -75,21 +78,27 @@
       },
 
       tabClick(index) {
-        switch (index) {
-          case 0:
-            this.currentType = 'title1'
-            break
-          case 1:
-            this.currentType = 'title2'
-            break
-          case 2:
-            this.currentType = 'title3'
-            break
-        }
+        // const flag = localStorage.getItem('index') === index;
+        const i = localStorage.getItem('index')
+        // if(localStorage.getItem('index') != index-1+''){
+          switch (i) {
+            case '0':
+              this.currentType = 'title1'
+              this.index = 1
+              break
+            case '1':
+              this.currentType = 'title2'
+              this.index = 2
+              break
+            case '2':
+              this.currentType = 'title3'
+              this.index = 3
+              break
+          }
       },
 
       contentScroll(position) {
-        this.isShowBackTop = (-position.y) > 1000
+        this.isShowBackTop = (-position.y) > 2000
       },
 
       //创建home实例对象是就要请求后端数据，请求到的数据要根据实际情况拿
@@ -100,7 +109,8 @@
       },
       getHomeGoods(type) {
         getHomeGoods(type).then(res => {
-          this.goods[type].list.push(...res.data.list)
+          console.log(res)
+          this.goods[type].list.push(...res)
           this.$refs.scroll.finishPullUp()
         })
       }

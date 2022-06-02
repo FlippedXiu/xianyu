@@ -24,11 +24,11 @@ export default {
       goodsList: [{title: 'test1', price: '30'}, {title: 'test2', price: '30'}],
     }
   },
-  //Todo: 测试时删除，请求到数据时要恢复
-  // created() {
-  //   this.userID = this.$route.params.userID
-  //   this.getMyGoodsData()
-  // },
+  // TODO DONE: 测试时删除，请求到数据时要恢复
+  created() {
+    this.userID = this.$route.params.userID
+    this.getMyGoodsData()
+  },
   methods: {
     getMyGoodsData() {
       getMyGoodsData(this.sellID).then(res => {
