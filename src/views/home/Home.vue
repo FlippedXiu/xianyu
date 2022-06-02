@@ -40,9 +40,9 @@
         //列表数据
         goods: {
           //TODO DONE：此处的，名称需要和TabBarControl中的title对应
-          'title1': {list: []},
-          'title2': {list: [{title: "test3", price: "35$"}, {title: "test4", price: "50$", iid: 112}, {title: "test8", price: "30$"}]},
-          'title3': {list: [{title: "test5", price: "55$"}, {title: "test6", price: "45$", iid: 112}, {title: "test9", price: "30$"}]},
+          'title1': [],
+          'title2': [{title: "test3", price: "35$"}, {title: "test4", price: "50$", iid: 112}, {title: "test8", price: "30$"}],
+          'title3': [{title: "test5", price: "55$"}, {title: "test6", price: "45$", iid: 112}, {title: "test9", price: "30$"}],
         },
         index:1,
         currentType: 'title1',
@@ -69,7 +69,7 @@
     },
     computed: {
       showGoods() {
-        return this.goods[this.currentType].list
+        return this.goods[this.currentType]
       }
     },
     methods: {
@@ -103,15 +103,16 @@
 
       //创建home实例对象是就要请求后端数据，请求到的数据要根据实际情况拿
       getHomeMultidata() {
-        getHomeData1().then(res => {
-          this.recommends = res.data.recommend.list;
-        })
+        // getHomeData1().then(res => {
+        //   this.recommends = res.data.recommend.list;
+        // })
       },
       getHomeGoods(type) {
         getHomeGoods(type).then(res => {
           console.log(res)
-          this.goods[type].list.push(...res)
-          this.$refs.scroll.finishPullUp()
+          this.goods[type].push(...res)
+          console.log(this.goods)
+          //this.$refs.scroll.finishPullUp()
         })
       }
     }
