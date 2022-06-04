@@ -30,7 +30,7 @@
 
 <script>
 import NavBar from "@/components/common/navigationBar/NavBar";
-import axios from "axios";
+import axios from "@/network/axios";
 
 export default {
   name: "upload",
@@ -49,17 +49,12 @@ export default {
   methods: {
     //TODO: 这里的url需要修改
     push() {
-      axios({
-        url: 'http://localhost:9090/item/upload',
-        methods: "post",
-        contentType: "application/json",
-        data: {
-          imgURL: this.imageSrc,
-          desc: this.textareaDesc,
-          shopInfo: this.shopInfo,
-          goodName: this.input1,
-          goodPrice: this.input2,
-        },
+      axios.post('http://localhost:9090/item/upload',{
+        imgURL: this.imageSrc,
+        desc: this.textareaDesc,
+        shopInfo: this.shopInfo,
+        goodName: this.input1,
+        goodPrice: this.input2,
       })
     },
     test:function() {

@@ -37,7 +37,7 @@ export default {
         passInput: this.pass_input,
       }).then (res=>{
         console.log(res)
-        if(res === 'true'){
+        if(res.data === true){
           App.globalData.isLogin = true;
           this.$router.replace('/home');
         }else{
