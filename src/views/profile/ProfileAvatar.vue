@@ -3,7 +3,9 @@
     <img src="@/assets/img/profile/avatar.svg" alt="" class="avatar">
     <div class="center">
       <div class="login" v-if="!loginIn">
-        <router-link to="/login" replace>登录</router-link>
+        <router-link to="/login" replace><h3>登录</h3></router-link>
+        <div id="blank"></div>
+        <router-link to="/SignUp" replace><h3>注册</h3></router-link>
       </div>
       <div v-if="loginIn">
         <div>已登录</div>
@@ -28,35 +30,39 @@ export default {
 </script>
 
 <style scoped>
-  .profile-avatar {
-    display: flex;
-    background-color: var(--color-tint);
-    height: 90px;
-    color:#fff;
-    position: relative;
-    /*justify-content: space-around;*/
-  }
-  .profile-avatar .avatar {
-    width: 75px;
-    height: 75px;
-    padding-top: 7px;
-  }
-  .center {
-    /*width: 60%;*/
-    text-align: center;
-    height: 100%;
-    padding-top:15px ;
-  }
-  .login a {
-    text-decoration: none;
-    color:#fff;
-    font-size: 20px;
-  }
+.profile-avatar {
+  display: flex;
+  background-color: var(--color-tint);
+  height: 90px;
+  color:#fff;
+  position: relative;
+  /*justify-content: space-around;*/
+}
+.profile-avatar .avatar {
+  width: 75px;
+  height: 75px;
+  padding-top: 7px;
+}
+.center {
+  /*width: 60%;*/
+  text-align: center;
+  height: 100%;
+  padding-top:15px ;
+}
+.login a {
+  text-decoration: none;
+  color:#fff;
+  font-size: 20px;
+}
 
-  .right {
-    font-size: 40px;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-  }
+.right {
+  font-size: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+#blank{
+  width:5px;
+  height:5px;
+}
 </style>

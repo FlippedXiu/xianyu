@@ -13,5 +13,7 @@ export default {
      }
    })
   },
-
+  deleteSelected(context){
+    context.commit('DeleteSelected')
+  }
 }

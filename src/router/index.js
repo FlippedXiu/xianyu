@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import myGoods from "@/views/myGoods/myGoods";
+import SignUp from "@/views/signup/SignUp";
 
 const Home = () => import('../views/home/Home')
 const Cart = () => import('../views/cart/Cart')
@@ -53,6 +54,10 @@ const routes = [
   {
     path: '/login',
     component: login
+  },
+  {
+    path:'/signup',
+    component:SignUp
   },
   {
     path: '/upload',

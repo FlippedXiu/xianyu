@@ -1,12 +1,12 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">跳蚤市场</div></nav-bar>
-<!--    <scroll class="content"-->
-<!--            ref="scroll"-->
-<!--            :probe-type="3"-->
-<!--            @scroll="contentScroll"-->
-<!--            :pull-up-load="true"-->
-<!--            @pullingUp="loadMore">-->
+    <scroll class="content"
+            ref="scroll"
+            :probe-type="3"
+            @scroll="contentScroll"
+            :pull-up-load="true"
+            @pullingUp="loadMore">
       <search></search>
       <home-recommend :recommends="recommends"/>
 <!--    
@@ -16,7 +16,7 @@
                    :titles="['title1', 'title2', 'title3']"
                    @tabClick="tabClick(index)"/>
       <GoodsList :goods="showGoods"/>
-<!--    </scroll>-->
+    </scroll>
   </div>
 </template>
 

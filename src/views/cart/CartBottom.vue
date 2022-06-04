@@ -5,6 +5,9 @@
       <check-button :is-check="isSelectAll" @click.native="selectAllClick"></check-button>
       <span>全选</span>
     </div>
+    <div class="delete-selected">
+      <el-button class="warning" @click="deleteSelected">删除选中商品</el-button>
+    </div>
     <div class="total-price">
       <span>合计：￥{{totalPrice}}</span>
     </div>
@@ -16,6 +19,7 @@
 
 <script>
 import CheckButton from "@/components/content/checkButton/CheckButton";
+
 export default {
   name: "CartBottom",
   components: {
@@ -54,6 +58,12 @@ export default {
     pay() {
       alert("支付成功，可进入个人中心查询购买记录")
       this.$emit('buy')
+    },
+    deleteSelected(){
+      //删除购物车选中商品
+      this.$store.dispatch('deleteSelected').then(res => {
+        console.log(res)
+      });
     }
   }
 }
