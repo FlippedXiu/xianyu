@@ -32,17 +32,20 @@ export default {
   methods: {
     //TODO DONE: 这里需要将用户名和密码发送给后端
     push() {
-      axios.post('/user/login', {
+      axios.post('http://localhost:9090/user/login', {
         userInput: this.user_input,
         passInput: this.pass_input,
       }).then (res=>{
         console.log(res)
+        if(res === 'true'){
+          App.globalData.isLogin = true;
+          this.$router.replace('/home');
+        }else{
+          alert("登陆失败，请重新输入");
+        }
       })
-
-      //this.$router.replace('/home');
-      //TODO: 如果登录成功，则修改为true，具体判断等待完善
-      App.globalData.isLogin = true;
     },
+
     cancel() {
       this.$router.replace('/profile');
     }

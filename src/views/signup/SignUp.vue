@@ -16,6 +16,21 @@
         <template slot="prepend">密码</template>
       </el-input>
     </div>
+    <div>
+      <el-input class="password" placeholder="请输入电话号码" v-model="phone">
+        <template slot="prepend">电话号码</template>
+      </el-input>
+    </div>
+    <div>
+      <el-input class="password" placeholder="请输入邮箱" v-model="email">
+        <template slot="prepend">邮箱</template>
+      </el-input>
+    </div>
+    <div>
+      <el-input class="password" placeholder="请输入居住地址" v-model="address">
+        <template slot="prepend">地址</template>
+      </el-input>
+    </div>
     <div class="button">
       <el-button  type="primary" @click="signup">注册</el-button>
       <el-button  type="primary" @click="cancel">取消注册</el-button>
@@ -33,24 +48,34 @@ export default {
     return {
       user_input: '',
       pass_input: '',
-      pass_confirm:''
+      pass_confirm:'',
+      phone:'',
+      email:'',
+      address:''
     }
   },
   methods:{
     signup(){
       if(this.pass_input !== this.pass_confirm){
         alert("两次密码不一致，请重新输入！")
-      }else{
-        axios.post('/user/signUp', {
-          userInput: this.user_input,
-          passInput: this.pass_input,
+      }else if(this.email.indexOf('@') < 0){
+        alert("邮箱格式有误，请重新输入")
+      } else{
+        axios.post('http://localhost:9090/user/signUp', {
+          username: this.user_input,
+          password: this.pass_input,
+          phone:this.phone,
+          email:this.email,
+          address:this.address
         }).then (res=>{
-          //console.log(res)
+          console.log(res)
           if(res){
             this.$router.replace('/login');
+            alert("注册成功，请输入账号密码");
+          }else{
+            alert("注册失败，请重试");
           }
         })
-        // App.globalData.isLogin = true;
       }
     },
     cancel() {
