@@ -20,7 +20,7 @@ export default {
   methods: {
     search() {
       //TODO: url需要根据后端进行修改
-      axios.post('/item/search', {
+      axios.post('http://localhost:9090/item/search', {
         input: this.input,
       }).then(res => {
         this.goods = res;
@@ -29,6 +29,7 @@ export default {
   },
   computed: {
     showGoods() {
+      //TODO
       return this.goods
     },
   },

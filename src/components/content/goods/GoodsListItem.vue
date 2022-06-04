@@ -1,9 +1,6 @@
 <template>
   <div class="goods-item" @click="itemClick">
-<!--
-  TODO ??：图片地址需要修改
--->
-    <img src="@/assets/img/home/recommend_bg.jpg" alt="">
+    <img :src='goodsItem.imgURL' alt="">
     <div class="goods-info">
       <p>商品名称：{{goodsItem.title}}</p>
       <span class="price">价格：{{goodsItem.price}}</span>
@@ -16,7 +13,7 @@
     name: "GoodsListItem",
     props: {
       goodsItem: {
-        //需要编号iid，名称title，价格price
+        //需要编号iid，名称title，价格price,图片地址imgURL
         type: Object,
         default() {
           return {}

@@ -30,6 +30,8 @@
 
   import search from "@/views/home/search";
   import HomeRecommend from "@/views/home/HomeRecommend";
+  import axios from "@/network/axios";
+  import App from "@/App";
 
   export default {
     name: "Home",
@@ -39,10 +41,10 @@
         recommends: null,//列表数据包括图片photo，文字name以及链接link
         //列表数据
         goods: {
-          //TODO DONE：此处的，名称需要和TabBarControl中的title对应
+          //TODO
           'title1': [],
-          'title2': [{title: "test3", price: "35$"}, {title: "test4", price: "50$", iid: 112}, {title: "test8", price: "30$"}],
-          'title3': [{title: "test5", price: "55$"}, {title: "test6", price: "45$", iid: 112}, {title: "test9", price: "30$"}],
+          'title2': [],
+          'title3': [],
         },
         index:1,
         currentType: 'title1',
@@ -61,15 +63,16 @@
     created: function () {
       // 1.请求多个数据
       //this.getHomeMultidata()
-    
+
       // 2.请求商品数据
-      this.getHomeGoods('title1')
-      this.getHomeGoods('title2')
-      this.getHomeGoods('title3')
+      this.goods["title1"] = this.getHomeGoods('title1')
+      this.goods["title2"] = this.getHomeGoods('title2')
+      this.goods["title3"] = this.getHomeGoods('title3')
     },
     computed: {
       showGoods() {
-        return this.goods[this.currentType]
+        //TODO 改成从后端拿数据
+        return this.goods[this.currentType];
       }
     },
     methods: {
@@ -108,12 +111,13 @@
         // })
       },
       getHomeGoods(type) {
-        getHomeGoods(type).then(res => {
-          console.log(res)
-          this.goods[type].push(...res)
-          console.log(this.goods)
-          //this.$refs.scroll.finishPullUp()
+        let returnGoods = [];
+        axios.post('http://localhost:9090/item/getByType', {
+          type:type
+        }).then (res=>{
+          returnGoods = res;
         })
+        return  returnGoods;
       }
     }
   }
