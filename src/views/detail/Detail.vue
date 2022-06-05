@@ -53,16 +53,23 @@
       getDetailData() {
         getDetailData(this.iid).then(res => {
           console.log(res)
-          const data = res.result;
+          //const data = res.result;
           //获取顶部图片
-          this.topImage = res.result.itemInfo.topImage
+          this.topImage = res.image_addr
           //获取商品基本信息
-          this.goodsInfo = new Goods(res.result.itemInfo)
-          // console.log(this.goodsInfo)
-          //获取店铺信息
-          this.shopInfo = new Shop(data.shopInfo)
+          const goodsInfo = {
+            title:res.name,
+            desc:'',
+            price:res.price
+          }
+          this.goodsInfo = new Goods(goodsInfo)
+          console.log("goodsInfo: "+this.goodsInfo)
+          //获取店铺信息,默认为空对象
+          const shopInfo = {
+          }
+          this.shopInfo = new Shop(shopInfo)
           //商品详细信息
-          this.detailInfo = data.detailInfo;
+          this.detailInfo = res.description;
         })
       },
 
