@@ -15,3 +15,12 @@ export function getHomeGoods(type) {
     },
   })
 }
+
+export function getSearchGoods(input) {
+  return request({
+    url: '/item/search',//此处的url需要修改
+    params: {
+      input,
+    },
+  })
+}

@@ -52,7 +52,7 @@
       //TODO：获取页面信息，此处所有的请求为模拟请求，需要修改
       getDetailData() {
         getDetailData(this.iid).then(res => {
-          console.log(res.result)
+          console.log(res)
           const data = res.result;
           //获取顶部图片
           this.topImage = res.result.itemInfo.topImage
