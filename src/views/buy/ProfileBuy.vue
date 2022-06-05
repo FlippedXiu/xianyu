@@ -20,9 +20,9 @@ export default {
       buyGoodsList: [{title: "test1", desc: "good", price: "30$"}],
     }
   },
-  //TODO DONE: 请求数据时恢复
+  //TODO: 请求数据时恢复
     created(){
-      if(getMessageFlag){
+      if(this.getMessageFlag){
         this.userID = this.$route.params.userID
         this.getMessage()
       }

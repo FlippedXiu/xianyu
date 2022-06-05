@@ -47,9 +47,8 @@ export default {
     }
   },
   methods: {
-    //TODO: 这里的url需要修改
     push() {
-      axios.post('http://localhost:9090/item/upload',{
+      axios.post('/item/upload',{
         imgURL: this.imageSrc,
         desc: this.textareaDesc,
         shopInfo: this.shopInfo,

@@ -9,9 +9,6 @@
             @pullingUp="loadMore">
       <search></search>
       <home-recommend :recommends="recommends"/>
-<!--    
-  TODO DONE: 这里需要根据标题修改title
-  -->
       <tab-control class="tab-control"
                    :titles="['title1', 'title2', 'title3']"
                    @tabClick="tabClick(index)"/>
@@ -41,7 +38,6 @@
         recommends: null,//列表数据包括图片photo，文字name以及链接link
         //列表数据
         goods: {
-          //TODO
           'title1': [],
           'title2': [],
           'title3': [],
@@ -65,9 +61,9 @@
       //this.getHomeMultidata()
 
       // 2.请求商品数据
-      this.goods["title1"] = this.getHomeGoods('title1')
-      this.goods["title2"] = this.getHomeGoods('title2')
-      this.goods["title3"] = this.getHomeGoods('title3')
+      this.getHomeGoods('title1')
+      this.getHomeGoods('title2')
+      this.getHomeGoods('title3')
     },
     computed: {
       showGoods() {
@@ -110,18 +106,19 @@
         //   this.recommends = res.data.recommend.list;
         // })
       },
-      getHomeGoods(type) {
-        let returnGoods = [];
-        axios.post('http://localhost:9090/item/getByType', {
-          type:type
-        }).then (res=>{
-          returnGoods = res;
+      getHomeGoods(t) {
+        //TODO 请求主页商品信息
+        axios.get('/item/getByType', {
+          params: {
+            type: t
+          }
+        }).then(function (response) {
+          console.log("getHomeGoods:"+response);
+          this.goods[t] = response;
         })
-        return  returnGoods;
-      }
+      },
     }
   }
-
 </script>
 
 <style scoped>

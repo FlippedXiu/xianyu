@@ -19,8 +19,7 @@ export default {
   },
   methods: {
     search() {
-      //TODO: url需要根据后端进行修改
-      axios.post('http://localhost:9090/item/search', {
+      axios.post('/item/search', {
         input: this.input,
       }).then(res => {
         this.goods = res;

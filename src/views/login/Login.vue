@@ -7,7 +7,7 @@
       </el-input>
     </div>
     <div>
-      <el-input class="password" placeholder="请输入密码" v-model="pass_input">
+      <el-input class="password" placeholder="请输入密码" v-model="pass_input" show-password>
         <template slot="prepend">密码</template>
       </el-input>
     </div>
@@ -30,9 +30,8 @@ export default {
     }
   },
   methods: {
-    //TODO DONE: 这里需要将用户名和密码发送给后端
     push() {
-      axios.post('http://localhost:9090/user/login', {
+      axios.post('/user/login', {
         userInput: this.user_input,
         passInput: this.pass_input,
       }).then (res=>{

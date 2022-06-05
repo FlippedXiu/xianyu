@@ -7,12 +7,12 @@
       </el-input>
     </div>
     <div>
-      <el-input class="password" placeholder="请输入密码" v-model="pass_input">
+      <el-input class="password" placeholder="请输入密码" v-model="pass_input" show-password>
         <template slot="prepend">密码</template>
       </el-input>
     </div>
     <div>
-      <el-input class="password" placeholder="请再次输入密码" v-model="pass_confirm">
+      <el-input class="password" placeholder="请再次输入密码" v-model="pass_confirm" show-password>
         <template slot="prepend">密码</template>
       </el-input>
     </div>
@@ -61,7 +61,7 @@ export default {
       }else if(this.email.indexOf('@') < 0){
         alert("邮箱格式有误，请重新输入")
       } else{
-        axios.post('http://localhost:9090/user/signUp', {
+        axios.post('/signUp', {
           username: this.user_input,
           password: this.pass_input,
           phone:this.phone,

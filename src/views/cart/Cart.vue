@@ -36,7 +36,7 @@ export default {
     pay() {
       //TODO DONE: URL需要修改
       axios({
-        url: 'http://localhost:9090/cart/',
+        url: '/cart/',
         methods: "post",
         contentType: "application/json",
         data: {
