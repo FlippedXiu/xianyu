@@ -1,19 +1,19 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">跳蚤市场</div></nav-bar>
-    <scroll class="content"
-            ref="scroll"
-            :probe-type="3"
-            @scroll="contentScroll"
-            :pull-up-load="true"
-            @pullingUp="loadMore">
-      <search></search>
-      <home-recommend :recommends="recommends"/>
+<!--    <scroll class="content"-->
+<!--            ref="scroll"-->
+<!--            :probe-type="3"-->
+<!--            @scroll="contentScroll"-->
+<!--            :pull-up-load="true"-->
+<!--            @pullingUp="loadMore">-->
+      <search class="search"></search>
+<!--      <home-recommend :recommends="recommends"/>-->
       <tab-control class="tab-control"
                    :titles="['title1', 'title2', 'title3']"
                    @tabClick="tabClick(index)"/>
       <GoodsList :goods="showGoods"/>
-    </scroll>
+<!--    </scroll>-->
   </div>
 </template>
 
@@ -108,13 +108,11 @@
       },
       getHomeGoods(t) {
         //TODO 请求主页商品信息
-        axios.get('/item/getByType', {
-          params: {
-            type: t
-          }
-        }).then(function (response) {
-          console.log("getHomeGoods:"+response);
-          this.goods[t] = response;
+        getHomeGoods(t).then(res => {
+          //console.log(res)
+          this.goods[t].push(...res)
+          //console.log(this.goods)
+          //this.$refs.scroll.finishPullUp()
         })
       },
     }
@@ -139,9 +137,14 @@
   z-index: 9;
 }
 
+.search {
+  position: sticky;
+  top: 46px;
+}
+
 .tab-control {
   position: sticky;
-  top: 44px;
+  top: 90px;
   z-index: 9;
 }
 

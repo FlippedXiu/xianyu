@@ -7,14 +7,17 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "@/network/axios";
 import GoodsList from "@/components/content/goods/GoodsList";
 export default {
   name: "search",
   data() {
     return {
       input: '',
-      goods: [],
+      goods: {
+        'result': [],
+      },
+      cur: 'result',
     }
   },
   methods: {
@@ -22,14 +25,16 @@ export default {
       axios.post('/item/search', {
         input: this.input,
       }).then(res => {
-        this.goods = res;
+        console.log(res)
+        this.goods[this.cur].push(res)
+        //console.log(this.goods)
       })
     }
   },
   computed: {
     showGoods() {
       //TODO
-      return this.goods
+      return this.goods[this.cur]
     },
   },
   components: {
