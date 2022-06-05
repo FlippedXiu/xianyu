@@ -56,7 +56,7 @@
       Scroll,
     },
     // Todo DONE: 测试时删除，请求到数据时要恢复
-    created: function () {
+    mounted: function () {
       // 1.请求多个数据
       //this.getHomeMultidata()
 
