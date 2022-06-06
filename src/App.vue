@@ -27,6 +27,7 @@ export default {
   },
   globalData: {
     isLogin: false,
+    uid:0,
   }
 }
 </script>

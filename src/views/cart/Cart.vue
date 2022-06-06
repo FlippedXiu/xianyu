@@ -10,9 +10,10 @@
 import NavBar from "@/components/common/navigationBar/NavBar";
 import CartGoodsList from "@/views/cart/CartGoodsList";
 import CartBottom from "@/views/cart/CartBottom";
-import {getCartData} from "@/network/myGoods";
-import axios from "axios";
+import axios from "@/network/axios";
 import {mapGetters} from "vuex";
+import App from "@/App";
+import {mapState} from "vuex";
 
 export default {
   name: "Cart",
@@ -24,31 +25,25 @@ export default {
 
   data() {
     return {
-      id: this.cartGoodsList.iid,
-      goodsList: this.cartGoodsList,
+      uid: App.globalData.uid,
+      goods:[],
     }
   },
 
   computed: {
-    ...mapGetters(['cartGoodsList'])
+    ...mapGetters(['cartGoodsList']),
   },
   methods: {
     pay() {
       //TODO DONE: URL需要修改
-      axios({
-        url: '/cart/',
-        methods: "post",
-        contentType: "application/json",
-        data: {
-          cartGoodsList: this.goodsList,
-        },
-        params: {
-          id: this.id,
-        },
-      }).then(res => {
-        console.log(res);
+      this.goods.push(...this.cartGoodsList)
+      axios.post('/sale/buy', {
+        goods: this.goods,
+        uid: this.uid,
       })
+      this.goods.splice(0,this.goods.length)
     },
+
   }
 }
 </script>

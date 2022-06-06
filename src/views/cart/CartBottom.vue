@@ -57,7 +57,7 @@ export default {
     },
     pay() {
       alert("支付成功，可进入个人中心查询购买记录")
-      this.$emit('buy')
+      this.$emit('pay')
     },
     deleteSelected(){
       //删除购物车选中商品

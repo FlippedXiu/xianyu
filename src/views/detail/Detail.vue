@@ -11,8 +11,8 @@
 
 <script>
   import {getDetailData,Goods,Shop} from "@/network/detail";
-  import axios from "axios";
-
+  import axios from "@/network/axios";
+  import App from "@/App";
   import NavBar from "@/components/common/navigationBar/NavBar";
 
   import BaseInfo from "@/views/detail/BaseInfo";
@@ -86,7 +86,7 @@
           console.log(res)
         });
       }
-    }
+    },
   }
 </script>
 

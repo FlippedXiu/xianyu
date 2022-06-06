@@ -21,6 +21,8 @@
 <script>
 import axios from "@/network/axios";
 import App from "@/App";
+import {postLogin} from "@/network/cart";
+
 export default {
   name: "Login",
   data() {
@@ -31,12 +33,9 @@ export default {
   },
   methods: {
     push() {
-      axios.post('/user/login', {
-        userInput: this.user_input,
-        passInput: this.pass_input,
-      }).then (res=>{
-        console.log(res)
-        if(res.data === true){
+      postLogin(this.user_input, this.pass_input).then(res => {
+        if(res.data !== null){
+          App.globalData.uid = res;
           App.globalData.isLogin = true;
           this.$router.replace('/home');
         }else{
