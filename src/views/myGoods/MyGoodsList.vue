@@ -6,10 +6,17 @@
 
 <script>
 import CartGoodsListItem from './MyGoodsListItem'
+import axios from "@/network/axios";
+import App from "@/App";
 export default {
   name: "CartGoodsList",
   components: {
     CartGoodsListItem,
+  },
+  data() {
+    return {
+      uid: App.globalData.uid
+    }
   },
   props: {
     goods: {
@@ -21,7 +28,12 @@ export default {
   },
   methods: {
     remove(index) {
+      let tempiid = this.goods[index].iid;
       this.goods.splice(index, 1);
+      axios.post('/item/delete', {
+        iid: tempiid,
+        uid: this.uid
+      })
     }
   }
 }

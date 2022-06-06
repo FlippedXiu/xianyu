@@ -34,7 +34,7 @@ export default {
   methods: {
     push() {
       postLogin(this.user_input, this.pass_input).then(res => {
-        if(res.data !== null){
+        if(res !== 0){
           App.globalData.uid = res;
           App.globalData.isLogin = true;
           this.$router.replace('/home');

@@ -6,7 +6,6 @@
     </div>
     <div class="item-info">
       <div class="item-title">{{product.title}}</div>
-      <div class="item-desc">{{product.desc}}</div>
       <div class="info-bottom">
         <div class="item-price">￥{{product.price}}</div>
       </div>
