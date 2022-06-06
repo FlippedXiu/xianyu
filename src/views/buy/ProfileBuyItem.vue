@@ -2,7 +2,7 @@
   <div class="list-item">
     <div class="item-img">
       //记得加绑定
-      <img src="@/assets/img/home/recommend_bg.jpg" alt="商品图片">
+      <img :src="product.imgURL" alt="商品图片">
     </div>
     <div class="item-info">
       <div class="item-title">{{product.title}}</div>

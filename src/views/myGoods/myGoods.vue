@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar class="myGoodsNav"><div slot="center">我发布的商品</div></nav-bar>
+    <nav-bar class="myGoodsNav"><div slot="left" @click="back">返回</div><div slot="center">我发布的商品</div></nav-bar>
     <div class="goods">
       <my-goods-list :goods="goodsList" ></my-goods-list>
     </div>
@@ -36,6 +36,9 @@ export default {
       getMyGoodsData(this.sellID).then(res => {
         this.goodsList = res;
       })
+    },
+    back() {
+      this.$router.replace('/sell');
     },
   }
 }

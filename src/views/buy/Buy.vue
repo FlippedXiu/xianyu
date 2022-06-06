@@ -1,6 +1,6 @@
 <template>
   <div id="buy">
-    <nav-bar><div slot="center">购买记录</div> </nav-bar>
+    <nav-bar><div slot="left" @click="back">返回</div><div slot="center">购买记录</div> </nav-bar>
     <div class="body">
       <profile-buy v-if="getMessageFlag" :goods="goodsList"></profile-buy>
       <div v-else>
@@ -41,7 +41,10 @@ export default {
           console.log(this.getMessageFlag)
         }
       })
-    }
+    },
+    back() {
+      this.$router.replace('/profile');
+    },
   },
 }
 </script>

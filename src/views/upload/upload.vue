@@ -1,6 +1,7 @@
 <template>
   <div>
     <nav-bar class="upload-navBar">
+      <div slot="left" @click="back">返回</div>
       <div slot="center">商品发布</div>
     </nav-bar>
     <div>
@@ -48,6 +49,7 @@ export default {
   methods: {
     push() {
       axios.post('/item/upload',{
+        imgURL: this.imageSrc,
         desc: this.textareaDesc,
         shopInfo: this.shopInfo,
         goodName: this.input1,
@@ -67,7 +69,10 @@ export default {
           .then(response=>{
             this.imageSrc = response.data.url
           })
-    }
+    },
+    back() {
+      this.$router.replace('/sell');
+    },
   }
 }
 </script>

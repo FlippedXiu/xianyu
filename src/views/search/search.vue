@@ -30,7 +30,10 @@ export default {
         console.log(this.goods)
         //this.$refs.scroll.finishPullUp()
       })
-    }
+    },
+    back() {
+      this.$router.replace('/myGoods');
+    },
   },
   computed: {
     showGoods() {

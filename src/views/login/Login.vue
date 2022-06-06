@@ -39,6 +39,8 @@ export default {
           App.globalData.isLogin = true;
           this.$router.replace('/home');
         }else{
+          this.user_input= '';
+          this.pass_input= '';
           alert("登陆失败，请重新输入");
         }
       })

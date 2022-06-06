@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from "@/network/axios";
 import App from "@/App";
 
 export default {
@@ -61,7 +61,7 @@ export default {
       }else if(this.email.indexOf('@') < 0){
         alert("邮箱格式有误，请重新输入")
       } else{
-        axios.post('/signUp', {
+        axios.post('/user/signUp', {
           username: this.user_input,
           password: this.pass_input,
           phone:this.phone,

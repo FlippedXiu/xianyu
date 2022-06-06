@@ -10,7 +10,7 @@
       <search class="search"></search>
 <!--      <home-recommend :recommends="recommends"/>-->
       <tab-control class="tab-control"
-                   :titles="['title1', 'title2', 'title3']"
+                   :titles="['精品服装', '数码科技', '二手书籍']"
                    @tabClick="tabClick(index)"/>
       <GoodsList :goods="showGoods"/>
 <!--    </scroll>-->
@@ -130,7 +130,6 @@
   background-color: var(--color-tint);
   color: #fff;
 
-  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -138,12 +137,10 @@
 }
 
 .search {
-  position: sticky;
   top: 46px;
 }
 
 .tab-control {
-  position: sticky;
   top: 90px;
   z-index: 9;
 }

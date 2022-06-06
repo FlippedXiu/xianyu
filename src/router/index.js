@@ -65,7 +65,7 @@ const routes = [
   },
   {
     path: '/myGoods',
-    component: myGoods
+    component: MyGoods
   }
 ]
 const router = new VueRouter({
