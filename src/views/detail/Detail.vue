@@ -1,7 +1,7 @@
 <template>
   <div id="detail">
       <DetailNavBar></DetailNavBar>
-      <img class="img" src="../../assets/img/home/recommend_bg.jpg" alt="">
+      <img class="img" v-bind:src="topImage" alt="">
       <base-info :goods="goodsInfo"></base-info>
       <shop-info :shop="shopInfo"></shop-info>
       <detail-info :detail-info="detailInfo"></detail-info>
@@ -56,6 +56,7 @@
           //const data = res.result;
           //获取顶部图片
           this.topImage = res.image_addr
+          console.log(this.topImage)
           //获取商品基本信息
           const goodsInfo = {
             title:res.name,
